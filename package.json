@@ -1,31 +1,31 @@
 {
-	"name": "vue-plugin-demo",
-	"displayName": "vue-plugin-demo",
-	"description": "",
-	"version": "0.0.1",
-	"publisher": "cungen",
-	"engines": {
-		"vscode": "^1.60.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"icon": "images/logo.png",
-	"activationEvents": [
-		"*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
+    "name": "vue-plugin-demo",
+    "displayName": "vue-plugin-demo",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "cungen",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/logo.png",
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
         "configuration": {
             "type": "object",
             "title": "Vue插件demo",
             "properties": {
-                "vscodePluginDemo.yourName": {
+                "vuePluginDemo.yourName": {
                     "type": "string",
                     "default": "guest",
                     "description": "你的名字"
                 },
-                "vscodePluginDemo.showTip": {
+                "vuePluginDemo.showTip": {
                     "type": "boolean",
                     "default": true,
                     "description": "启动时显示自定义欢迎页"
@@ -34,39 +34,39 @@
         },
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "(VuePlugin)For you always, sir."
+                "command": "vPlugin.demo.sayHello",
+                "title": "(VuePlugin)Hi"
             },
             {
-                "command": "extension.demo.getCurrentFilePath",
+                "command": "vPlugin.demo.getCurrentFilePath",
                 "title": "(VuePlugin)获取当前文件(夹)路径"
             },
             {
-                "command": "extension.demo.testMenuShow",
-                "title": "(VuePlugin)的菜单",
+                "command": "vPlugin.demo.showMenu",
+                "title": "(VuePlugin)的名言菜单",
                 "icon": {
-                    "light": "${tools}",
-                    "dark": "${tools}"
+                    "light": "${lightbulb}",
+                    "dark": "${lightbulb}"
                 }
             },
             {
-                "command": "extension.demo.openWebview",
+                "command": "vPlugin.demo.openWebview",
                 "title": "(VuePlugin)打开WebView"
             },
             {
-                "command": "extension.demo.showWelcome",
+                "command": "vPlugin.demo.showWelcome",
                 "title": "(VuePlugin)显示自定义欢迎页"
             }
         ],
         "keybindings": [
             {
-                "command": "extension.sayHello",
+                "command": "vPlugin.demo.sayHello",
                 "key": "ctrl+alt+h",
                 "mac": "cmd+alt+h",
                 "when": "editorTextFocus"
             },
             {
-                "command": "extension.demo.openWebview",
+                "command": "vPlugin.demo.openWebview",
                 "key": "ctrl+alt+o",
                 "mac": "cmd+alt+o",
                 "when": "editorTextFocus"
@@ -76,45 +76,45 @@
             "editor/context": [
                 {
                     "when": "editorFocus",
-                    "command": "extension.sayHello",
+                    "command": "vPlugin.demo.sayHello",
                     "group": "navigation@6"
                 },
                 {
                     "when": "editorFocus",
-                    "command": "extension.demo.getCurrentFilePath",
+                    "command": "vPlugin.demo.getCurrentFilePath",
                     "group": "navigation@5"
                 },
                 {
-                    "when": "editorFocus && resourceLangId == javascript",
-                    "command": "extension.demo.testMenuShow",
+                    "when": "editorFocus && resourceLangId == vue",
+                    "command": "vPlugin.demo.showMenu",
                     "group": "z_commands"
                 },
                 {
-                    "command": "extension.demo.openWebview",
+                    "command": "vPlugin.demo.openWebview",
                     "group": "navigation"
                 }
             ],
             "editor/title": [
                 {
-                    "when": "editorFocus && resourceLangId == javascript",
-                    "command": "extension.demo.testMenuShow",
+                    "when": "editorFocus && resourceLangId == vue",
+                    "command": "vPlugin.demo.showMenu",
                     "group": "navigation"
                 }
             ],
             "editor/title/context": [
                 {
-                    "when": "resourceLangId == javascript",
-                    "command": "extension.demo.testMenuShow",
+                    "when": "resourceLangId == vue",
+                    "command": "vPlugin.demo.showMenu",
                     "group": "navigation"
                 }
             ],
             "explorer/context": [
                 {
-                    "command": "extension.demo.getCurrentFilePath",
+                    "command": "vPlugin.demo.getCurrentFilePath",
                     "group": "navigation"
                 },
                 {
-                    "command": "extension.demo.openWebview",
+                    "command": "vPlugin.demo.openWebview",
                     "group": "navigation"
                 }
             ]
@@ -158,25 +158,25 @@
             }
         ]
     },
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.63.0",
-		"@types/glob": "^7.1.4",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "14.x",
-		"@typescript-eslint/eslint-plugin": "^5.1.0",
-		"@typescript-eslint/parser": "^5.1.0",
-		"eslint": "^8.1.0",
-		"glob": "^7.1.7",
-		"mocha": "^9.1.3",
-		"typescript": "^4.4.4",
-		"@vscode/test-electron": "^1.6.2"
-	}
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.63.0",
+        "@types/glob": "^7.1.4",
+        "@types/mocha": "^9.0.0",
+        "@types/node": "14.x",
+        "@typescript-eslint/eslint-plugin": "^5.1.0",
+        "@typescript-eslint/parser": "^5.1.0",
+        "eslint": "^8.1.0",
+        "glob": "^7.1.7",
+        "mocha": "^9.1.3",
+        "typescript": "^4.4.4",
+        "@vscode/test-electron": "^1.6.2"
+    }
 }
