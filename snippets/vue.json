@@ -1,0 +1,16 @@
+{
+    "http": {
+        "prefix": "http",
+        "body": [
+            "this.$http.get('$1', {",
+            "    params: {$2}",
+            "}).then(resp => {",
+            "    const data = _.get(resp.body, 'value.data')",
+            "    $3",
+            "}, () => {",
+            "    this.$message.error(this.$t('global.requestFailed'))",
+            "})"
+        ],
+        "description": "http模块"
+    }
+}
