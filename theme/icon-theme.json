@@ -1,7 +1,10 @@
 {
     "iconDefinitions": {
 		"_folder_dark": {
-			"iconPath": "../images/logo.png"
+			"iconPath": "../images/folder.svg"
+        },
+		"_folder": {
+			"iconPath": "../images/folder.svg"
         }
     }
 }

@@ -3,7 +3,7 @@
     "displayName": "vue-plugin-demo",
     "description": "",
     "version": "0.0.1",
-    "publisher": "cungen",
+    "publisher": "Cungen",
     "engines": {
         "vscode": "^1.60.0"
     },
@@ -27,7 +27,7 @@
                 },
                 "vuePluginDemo.showTip": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "启动时显示自定义欢迎页"
                 }
             }
@@ -44,10 +44,7 @@
             {
                 "command": "vPlugin.demo.showMenu",
                 "title": "(VuePlugin)的名言菜单",
-                "icon": {
-                    "light": "${lightbulb}",
-                    "dark": "${lightbulb}"
-                }
+                "icon": "$(lightbulb)"
             },
             {
                 "command": "vPlugin.demo.openWebview",
@@ -96,7 +93,7 @@
             ],
             "editor/title": [
                 {
-                    "when": "editorFocus && resourceLangId == vue",
+                    "when": "resourceLangId == vue",
                     "command": "vPlugin.demo.showMenu",
                     "group": "navigation"
                 }
@@ -121,8 +118,8 @@
         },
         "snippets": [
             {
-                "language": "vue",
-                "path": "./snippets/vue.json"
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
             }
         ],
         "viewsContainers": {
@@ -130,7 +127,7 @@
                 {
                     "id": "VuePlugin",
                     "title": "VuePlugin",
-                    "icon": "${symbol-misc}"
+                    "icon": "$(symbol-misc)"
                 }
             ]
         },

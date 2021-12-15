@@ -10,7 +10,10 @@ import util from "../utils/util";
  * @param {*} token
  * @param {*} context
  */
-function provideCompletionItems(document, position, token, context) {
+function provideCompletionItems(
+    document: vscode.TextDocument,
+    position: vscode.Position
+) {
     const line = document.lineAt(position);
     const projectPath = util.getProjectPath(document);
 
@@ -18,6 +21,7 @@ function provideCompletionItems(document, position, token, context) {
     const lineText = line.text.substring(0, position.character);
     // 简单匹配，只要当前光标前的字符串为`this.dependencies.`都自动带出所有的依赖
     if (/(^|=| )\w+\.dependencies\.$/g.test(lineText)) {
+        console.log(projectPath);
         const json = require(`${projectPath}/package.json`);
         const dependencies = Object.keys(json.dependencies || {}).concat(
             Object.keys(json.devDependencies || {})
@@ -37,11 +41,11 @@ function provideCompletionItems(document, position, token, context) {
  * @param {*} item
  * @param {*} token
  */
-function resolveCompletionItem(item, token) {
+function resolveCompletionItem() {
     return null;
 }
 
-module.exports = function (context) {
+export default function (context: vscode.ExtensionContext) {
     // 注册代码建议提示，只有当按下“.”时才触发
     context.subscriptions.push(
         vscode.languages.registerCompletionItemProvider(
@@ -53,4 +57,4 @@ module.exports = function (context) {
             "."
         )
     );
-};
+}
