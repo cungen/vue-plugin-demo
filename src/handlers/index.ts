@@ -1,9 +1,9 @@
 export * from "./say-hello";
 export * from "./show-menu";
 export * from "./jump-to-definition";
+export * from "./completion";
+export * from "./hover";
 
-require("./completion")(context); // 自动补全
-require("./hover")(context); // 悬停提示
 require("./webview")(context); // Webview
 require("./welcome")(context); // 欢迎提示
 require("./other")(context); // 其它杂七杂八演示代码
